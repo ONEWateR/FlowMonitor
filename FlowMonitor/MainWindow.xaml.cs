@@ -1,4 +1,6 @@
 ﻿using onewater.flowmonitor.app;
+using onewater.flowmonitor.windows;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +25,7 @@ namespace onewater
         public MainWindow()
         {
             InitializeComponent();
+            this.contentControl.Content = new FlowMonitorWindow();
         }
 
         /// <summary>

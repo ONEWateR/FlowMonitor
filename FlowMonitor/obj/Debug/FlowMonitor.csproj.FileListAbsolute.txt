@@ -27,3 +27,8 @@ c:\users\onewater\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\
 c:\users\onewater\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\obj\Debug\control\MainNavButton.baml
 c:\users\onewater\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\obj\Debug\control\MainNav.g.cs
 c:\users\onewater\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\obj\Debug\control\MainNavButton.g.cs
+c:\users\onewater\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\obj\Debug\windows\FlowMonitorWindow.g.cs
+c:\users\onewater\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\obj\Debug\windows\FlowMonitorWindow.baml
+C:\Users\ONEWateR\Documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\obj\Debug\res\ColTitle.baml
+C:\Users\ONEWateR\Documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\obj\Debug\control\ProgressBar.baml
+C:\Users\ONEWateR\Documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\obj\Debug\control\ProgressBar.g.cs

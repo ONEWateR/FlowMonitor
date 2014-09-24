@@ -1,0 +1,71 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:converter="clr-namespace:onewater.flowmonitor.core"
+             xmlns:control="clr-namespace:onewater.flowmonitor.control" x:Class="onewater.flowmonitor.windows.FlowMonitorWindow"
+             mc:Ignorable="d" 
+             d:DesignHeight="570" d:DesignWidth="765">
+    <Grid>
+        <!-- 0 -->
+        
+            <Label Style="{StaticResource TitleLabel}" Content="今日使用情况" HorizontalAlignment="Center" Margin="36,17,627,0" VerticalAlignment="Top"  />
+            <control:ProgressBar HorizontalAlignment="Left" Height="27" Margin="64,55,0,0" VerticalAlignment="Top" Width="626"/>
+            <Label x:Name="max" Content="每日流量警告线：200 MB" HorizontalAlignment="Left" Margin="540,87,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="rest" Content="Label" HorizontalAlignment="Left" Margin="64,87,0,0" VerticalAlignment="Top"/>
+        
+        <!-- 1 -->
+        <Label Style="{StaticResource TitleLabel}" Content="实时监控" HorizontalAlignment="Center" Margin="36,136,655,0" VerticalAlignment="Top"/>
+        <Label Content="Powered By ONEWateR..." HorizontalAlignment="Center" Margin="306,219,305,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="datagrid"
+                  ItemsSource="{Binding}" 
+                  AutoGenerateColumns="False" 
+                  CanUserAddRows="False"   
+                  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="36,173,0,0" 
+                  Height="376" Width="700" 
+                  IsReadOnly="True" 
+                  Background="{x:Null}" 
+                  BorderBrush="{x:Null}"  
+                  HeadersVisibility="Column" 
+                  SelectionMode="Single" >
+            <DataGrid.Resources>
+                <converter:IntToFlowConverter x:Key="IntToFlowConverter"/>
+                <converter:IntToFlowSpeedConverter x:Key="IntToFlowSpeedConverter"/>
+                <converter:IconToImageConverter x:Key="IconToImageConverter"/>
+            </DataGrid.Resources>
+
+            <DataGrid.Columns>
+                <!-- #1 -->
+                <DataGridTemplateColumn Header="程序" Width="*" IsReadOnly="True" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="5,0,0,0">
+                                <Image VerticalAlignment="Center" Height="32"  Source="{Binding icon, Converter={StaticResource IconToImageConverter}}"  />
+                                <StackPanel Margin="7,0,0,0">
+                                    <TextBlock FontFamily="微软雅黑" Foreground="#333333" FontSize="13" Text="{Binding name}"/>
+                                    <TextBlock FontFamily="微软雅黑" Margin="0,5,0,0" MaxWidth="200"  Text="{Binding describe}" Foreground="#FF6E6E6E"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <!-- #2 -->
+                <DataGridTextColumn Width="100" Binding="{Binding UpSpeed, Converter={StaticResource IntToFlowSpeedConverter}}" Header="上传速度" />
+                <!-- #3 -->
+                <DataGridTextColumn Width="100" Binding="{Binding DownSpeed, Converter={StaticResource IntToFlowSpeedConverter}}" Header="下载速度"/>
+                <!-- #4 -->
+                <DataGridTextColumn Width="100" Binding="{Binding UpFlow, Converter={StaticResource IntToFlowConverter}}" Header="上传流量[外]"/>
+                <!-- #5 -->
+                <DataGridTextColumn Width="100" Binding="{Binding DownFlow, Converter={StaticResource IntToFlowConverter}}" Header="下载流量[外]"/>
+                <!-- #6 -->
+                <DataGridTextColumn Width="100" Binding="{Binding TotalFlow, Converter={StaticResource IntToFlowConverter}}" Header="总流量[外]"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+        
+
+
+    </Grid>
+</UserControl>

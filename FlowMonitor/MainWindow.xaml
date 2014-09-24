@@ -6,8 +6,8 @@
         Loaded="Window_Loaded"
         Title="流量监控" Height="620" Width="945">
     <Grid>
-
         <control:MainNav x:Name="mainNav"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,-30,0,0"/>
+        <ContentControl x:Name="contentControl" HorizontalAlignment="Left" Height="570" Margin="160,0,0,0" VerticalAlignment="Top" Width="765"/>
 
     </Grid>
 </Window>

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-c:\users\onewater\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\obj\Debug\
+C:\Users\ONEWateR\Documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\obj\Debug\
 onewater.flowmonitor
 none
 false
 DEBUG;TRACE
-c:\users\onewater\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\App.xaml
-7-678874325
+C:\Users\ONEWateR\Documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\App.xaml
+10-1415919426
 
-151429529746
-16909045058
-control\MainNav.xaml;control\MainNavButton.xaml;MainWindow.xaml;res\ButtonStyle.xaml;res\ImageButton.xaml;res\DataGridStyle.xaml;res\WindowStyle.xaml;
+18-709365705
+16-225908026
+control\MainNav.xaml;control\MainNavButton.xaml;control\ProgressBar.xaml;MainWindow.xaml;res\ButtonStyle.xaml;res\ColTitle.xaml;res\ImageButton.xaml;res\DataGridStyle.xaml;res\WindowStyle.xaml;windows\FlowMonitorWindow.xaml;
 
-False
+True
 
