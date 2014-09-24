@@ -8,13 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("flowmonitor.res/img/icon/about_icon_n.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("flowmonitor.res/img/icon/about_icon_s.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("flowmonitor.res/img/icon/fw_icon_n.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("flowmonitor.res/img/icon/fw_icon_s.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("flowmonitor.res/img/icon/home_icon_n.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("flowmonitor.res/img/icon/home_icon_s.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("flowmonitor.res/img/icon/rs_icon_n.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("flowmonitor.res/img/icon/rs_icon_s.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("res/img/line.png")]
 
 

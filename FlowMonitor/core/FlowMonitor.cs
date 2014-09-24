@@ -18,6 +18,7 @@ using System.Net.Sockets;
 using System.Diagnostics;
 using System.Timers;
 using System.ComponentModel;
+using System.Drawing;
 
 namespace onewater.flowmonitor.core
 {
@@ -95,8 +96,8 @@ namespace onewater.flowmonitor.core
             // 创建数据库记录流量使用情况
             try
             {
-                SQLite.Create();
-                TheDayFlow = SQLite.GetTheDayFlow(DateTime.Now);
+                //SQLite.Create();
+                //TheDayFlow = SQLite.GetTheDayFlow(DateTime.Now);
             }
             catch (Exception e)
             {
@@ -112,7 +113,7 @@ namespace onewater.flowmonitor.core
             Timer FlowWriteTimer = new Timer();
             FlowWriteTimer.Elapsed += (a, b) =>
             {
-                SQLite.Write();
+                //SQLite.Write();
             };
             FlowWriteTimer.Interval = 60 * 1000;
             FlowWriteTimer.Start();
@@ -386,13 +387,13 @@ namespace onewater.flowmonitor.core
         public void Close()
         {
             MainTimer.Dispose();
-            Remind.GetRemind().Stop();
+            //Remind.GetRemind().Stop();
             for (int i = 0; i < CaptureDeviceList.Instance.Count; i++)
             {
                 var device = CaptureDeviceList.Instance[i];
                 device.StopCapture();
             }
-            SQLite.Write();
+            //SQLite.Write();
         }
 
         int time = 0;

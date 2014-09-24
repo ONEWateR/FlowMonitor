@@ -34,8 +34,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PacketDotNet">
+      <HintPath>..\..\..\..\..\Desktop\CASpirit\CASpirit\bin\Debug\PacketDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpPcap">
+      <HintPath>..\..\..\..\..\Desktop\CASpirit\CASpirit\bin\Debug\SharpPcap.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>..\..\..\..\..\Desktop\CASpirit\CASpirit\bin\Debug\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -53,6 +63,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="control\MainNav.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="control\MainNavButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -61,30 +79,41 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="app\AppConfig.cs" />
+    <Compile Include="common\CSharpToJS.cs" />
+    <Compile Include="common\SQLiteDBHelper.cs" />
+    <Compile Include="control\MainNav.xaml.cs">
+      <DependentUpon>MainNav.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="control\MainNavButton.xaml.cs">
+      <DependentUpon>MainNavButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="core\Flow.cs" />
+    <Compile Include="core\FlowMonitor.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="flowmonitor.res\ButtonStyle.xaml">
+    <Page Include="res\ButtonStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="flowmonitor.res\ImageButton.xaml">
+    <Page Include="res\ImageButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="flowmonitor.res\DataGridStyle.xaml">
+    <Page Include="res\DataGridStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="flowmonitor.res\WindowStyle.xaml">
+    <Page Include="res\WindowStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="flowmonitor.res\events\ImageButton.cs" />
-    <Compile Include="flowmonitor.res\events\EventManager.cs" />
+    <Compile Include="res\events\ImageButton.cs" />
+    <Compile Include="res\events\EventManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -109,40 +138,40 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="flowmonitor.app\" />
-    <Folder Include="flowmonitor.class\" />
-    <Folder Include="flowmonitor.common\" />
-    <Folder Include="flowmonitor.windows\" />
+    <Folder Include="windows\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="flowmonitor.res\img\button\mie.png" />
-    <Resource Include="flowmonitor.res\img\button\mim.png" />
-    <Resource Include="flowmonitor.res\img\button\min.png" />
-    <Resource Include="flowmonitor.res\img\button\mme.png" />
-    <Resource Include="flowmonitor.res\img\button\mmm.png" />
-    <Resource Include="flowmonitor.res\img\button\mmn.png" />
-    <Resource Include="flowmonitor.res\img\button\mse.png" />
-    <Resource Include="flowmonitor.res\img\button\msm.png" />
-    <Resource Include="flowmonitor.res\img\button\msn.png" />
-    <Resource Include="flowmonitor.res\img\button\mxe.png" />
-    <Resource Include="flowmonitor.res\img\button\mxm.png" />
-    <Resource Include="flowmonitor.res\img\button\mxn.png" />
-    <Resource Include="flowmonitor.res\img\button\ske.png" />
-    <Resource Include="flowmonitor.res\img\button\skm.png" />
-    <Resource Include="flowmonitor.res\img\button\skn.png" />
-    <Resource Include="flowmonitor.res\img\button\xe.png" />
-    <Resource Include="flowmonitor.res\img\button\xm.png" />
-    <Resource Include="flowmonitor.res\img\button\xn.png" />
+    <Resource Include="res\img\button\mie.png" />
+    <Resource Include="res\img\button\mim.png" />
+    <Resource Include="res\img\button\min.png" />
+    <Resource Include="res\img\button\mme.png" />
+    <Resource Include="res\img\button\mmm.png" />
+    <Resource Include="res\img\button\mmn.png" />
+    <Resource Include="res\img\button\mse.png" />
+    <Resource Include="res\img\button\msm.png" />
+    <Resource Include="res\img\button\msn.png" />
+    <Resource Include="res\img\button\mxe.png" />
+    <Resource Include="res\img\button\mxm.png" />
+    <Resource Include="res\img\button\mxn.png" />
+    <Resource Include="res\img\button\ske.png" />
+    <Resource Include="res\img\button\skm.png" />
+    <Resource Include="res\img\button\skn.png" />
+    <Resource Include="res\img\button\xe.png" />
+    <Resource Include="res\img\button\xm.png" />
+    <Resource Include="res\img\button\xn.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="flowmonitor.res\img\icon\about_icon_n.png" />
-    <Resource Include="flowmonitor.res\img\icon\about_icon_s.png" />
-    <Resource Include="flowmonitor.res\img\icon\fw_icon_n.png" />
-    <Resource Include="flowmonitor.res\img\icon\fw_icon_s.png" />
-    <Resource Include="flowmonitor.res\img\icon\home_icon_n.png" />
-    <Resource Include="flowmonitor.res\img\icon\home_icon_s.png" />
-    <Resource Include="flowmonitor.res\img\icon\rs_icon_n.png" />
-    <Resource Include="flowmonitor.res\img\icon\rs_icon_s.png" />
+    <Resource Include="res\img\icon\about_icon_n.png" />
+    <Resource Include="res\img\icon\about_icon_s.png" />
+    <Resource Include="res\img\icon\fw_icon_n.png" />
+    <Resource Include="res\img\icon\fw_icon_s.png" />
+    <Resource Include="res\img\icon\home_icon_n.png" />
+    <Resource Include="res\img\icon\home_icon_s.png" />
+    <Resource Include="res\img\icon\rs_icon_n.png" />
+    <Resource Include="res\img\icon\rs_icon_s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\img\icon\line.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

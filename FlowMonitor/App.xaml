@@ -7,10 +7,10 @@
         <!-- 加载样式、控件等资源 -->
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/flowmonitor.res/ImageButton.xaml" />
-                <ResourceDictionary Source="/flowmonitor.res/WindowStyle.xaml" />
-                <ResourceDictionary Source="/flowmonitor.res/ButtonStyle.xaml" />
-                <ResourceDictionary Source="/flowmonitor.res/DataGridStyle.xaml" />
+                <ResourceDictionary Source="/res/ImageButton.xaml" />
+                <ResourceDictionary Source="/res/WindowStyle.xaml" />
+                <ResourceDictionary Source="/res/ButtonStyle.xaml" />
+                <ResourceDictionary Source="/res/DataGridStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 

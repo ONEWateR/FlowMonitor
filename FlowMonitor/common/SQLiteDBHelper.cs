@@ -165,14 +165,4 @@ namespace onewater.flowmonitor.common
         }
     }
 
-
-    public class ObsCollection<T> : ObservableCollection<T>
-    {
-        public void UpdateCollection()
-        {
-            OnCollectionChanged(new System.Collections.Specialized.NotifyCollectionChangedEventArgs(
-                            System.Collections.Specialized.NotifyCollectionChangedAction.Reset));
-        }
-    }
-
 }

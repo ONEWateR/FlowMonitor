@@ -1,4 +1,5 @@
-﻿using System;
+﻿using onewater.flowmonitor.app;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,16 @@ namespace onewater
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// 窗口载入事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            mainNav.init(AppConfig.NavData);
         }
     }
 }

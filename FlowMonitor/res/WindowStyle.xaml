@@ -40,26 +40,26 @@
                                     <!-- 最小化 -->
                                     <res:ImageButton HorizontalAlignment="Right" Height="22" Margin="0,0,34,0" VerticalAlignment="Top" Width="28"  Click="Min_Click">
                                         <res:ImageButton.MyMoverBrush>
-                                            <ImageBrush ImageSource="/FlowMonitor;component/flowmonitor.res/img/button/mim.png"/>
+                                            <ImageBrush ImageSource="/FlowMonitor;component/res/img/button/mim.png"/>
                                         </res:ImageButton.MyMoverBrush>
                                         <res:ImageButton.MyEnterBrush>
-                                            <ImageBrush ImageSource="/FlowMonitor;component/flowmonitor.res/img/button/mie.png"/>
+                                            <ImageBrush ImageSource="/FlowMonitor;component/res/img/button/mie.png"/>
                                         </res:ImageButton.MyEnterBrush>
                                         <res:ImageButton.Background>
-                                            <ImageBrush ImageSource="/FlowMonitor;component/flowmonitor.res/img/button/min.png"/>
+                                            <ImageBrush ImageSource="/FlowMonitor;component/res/img/button/min.png"/>
                                         </res:ImageButton.Background>
                                     </res:ImageButton>
 
                                     <!-- 关闭 -->
                                     <res:ImageButton HorizontalAlignment="Right" Height="22" Margin="0,0,5,0" VerticalAlignment="Top" Width="28" Click="Close_Click">
                                         <res:ImageButton.MyMoverBrush>
-                                            <ImageBrush ImageSource="/FlowMonitor;component/flowmonitor.res/img/button/xm.png"/>
+                                            <ImageBrush ImageSource="/FlowMonitor;component/res/img/button/xm.png"/>
                                         </res:ImageButton.MyMoverBrush>
                                         <res:ImageButton.MyEnterBrush>
-                                            <ImageBrush ImageSource="/FlowMonitor;component/flowmonitor.res/img/button/xe.png"/>
+                                            <ImageBrush ImageSource="/FlowMonitor;component/res/img/button/xe.png"/>
                                         </res:ImageButton.MyEnterBrush>
                                         <res:ImageButton.Background>
-                                            <ImageBrush ImageSource="/FlowMonitor;component/flowmonitor.res/img/button/xn.png"/>
+                                            <ImageBrush ImageSource="/FlowMonitor;component/res/img/button/xn.png"/>
                                         </res:ImageButton.Background>
                                     </res:ImageButton>
                                     
