@@ -54,12 +54,34 @@ namespace onewater.flowmonitor.common
         /// <summary>
         /// 播放动画（DoubleAnimation）
         /// </summary>
-        /// <param name="from"></param>
-        /// <param name="to"></param>
-        /// <param name="dp"></param>
-        /// <param name="target"></param>
-        /// <param name="duration"></param>
+        /// <param name="from">From</param>
+        /// <param name="to">To</param>
+        /// <param name="dp">依赖属性</param>
+        /// <param name="target">对象</param>
+        /// <param name="duration">时长</param>
         public static void PlayAnimation(double from, double to, DependencyProperty dp, Control target, double duration = 1)
+        {
+            DoubleAnimation animation = new DoubleAnimation()
+            {
+                From = from,
+                To = to,
+                Duration = TimeSpan.FromSeconds(duration),
+                FillBehavior = FillBehavior.HoldEnd,
+                AccelerationRatio = .5,
+                EasingFunction = CAAnimation.be
+            };
+            target.BeginAnimation(dp, animation);
+        }
+
+        /// <summary>
+        /// 播放动画（）
+        /// </summary>
+        /// <param name="from">From</param>
+        /// <param name="to">To</param>
+        /// <param name="dp">依赖属性</param>
+        /// <param name="target">对象</param>
+        /// <param name="duration">时长</param>
+        public static void PlayAnimation(double from, double to, DependencyProperty dp, System.Windows.Shapes.Shape target, double duration = 1)
         {
             DoubleAnimation animation = new DoubleAnimation()
             {

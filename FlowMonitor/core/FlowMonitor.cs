@@ -283,9 +283,13 @@ namespace onewater.flowmonitor.core
         }
 
 
-
+        /// <summary>
+        /// 返回当天的流量使用情况
+        /// [总流量, 上传流量]
+        /// </summary>
+        /// <returns></returns>
         public UInt32[] GetTheDayFlow() {
-            return TheDayFlow;
+            return new UInt32[] { TheDayFlow[0] + TheDayFlow[1], TheDayFlow[0] };
         }
 
         /* --------------------------------------------------- */
@@ -515,9 +519,7 @@ namespace onewater.flowmonitor.core
             PID_port_udp.Clear();
         }
 
-        public UInt32[] GetTest() {
-            return TheDayFlow;
-        }
+
     }
 
     public class ObsCollection<T> : ObservableCollection<T>

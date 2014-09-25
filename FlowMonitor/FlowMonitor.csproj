@@ -59,8 +59,8 @@
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.SQLite, Version=1.0.66.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
-      <HintPath>..\..\..\..\..\Desktop\CASpirit\CASpirit\bin\Debug\System.Data.SQLite.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Desktop\System.Data.SQLite.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
@@ -178,8 +178,8 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="res\img\icon\history_icon_n.png" />
     <Resource Include="res\img\icon\history_icon_s.png" />
+    <Resource Include="res\img\icon\history_icon_n.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="res\img\button\mie.png" />

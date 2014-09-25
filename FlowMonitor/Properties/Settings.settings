@@ -2,8 +2,23 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="onewater.flowmonitor.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="Test" Type="System.String" Scope="User">
+    <Setting Name="RemindALL" Type="System.Int16" Scope="User">
       <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="RemindUP" Type="System.Int16" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="WarningALL" Type="System.Int64" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="WarningUP" Type="System.Int64" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="UnableRemind" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="UnableRemindTheDay" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

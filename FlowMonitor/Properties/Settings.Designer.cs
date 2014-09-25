@@ -22,5 +22,77 @@ namespace onewater.flowmonitor.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public short RemindALL {
+            get {
+                return ((short)(this["RemindALL"]));
+            }
+            set {
+                this["RemindALL"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public short RemindUP {
+            get {
+                return ((short)(this["RemindUP"]));
+            }
+            set {
+                this["RemindUP"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public long WarningALL {
+            get {
+                return ((long)(this["WarningALL"]));
+            }
+            set {
+                this["WarningALL"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public long WarningUP {
+            get {
+                return ((long)(this["WarningUP"]));
+            }
+            set {
+                this["WarningUP"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool UnableRemind {
+            get {
+                return ((bool)(this["UnableRemind"]));
+            }
+            set {
+                this["UnableRemind"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool UnableRemindTheDay {
+            get {
+                return ((bool)(this["UnableRemindTheDay"]));
+            }
+            set {
+                this["UnableRemindTheDay"] = value;
+            }
+        }
     }
 }

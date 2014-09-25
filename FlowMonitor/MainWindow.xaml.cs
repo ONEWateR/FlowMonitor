@@ -41,12 +41,6 @@ namespace onewater
                 FlowMonitor.GetMonitor().Close();
             };
 
-            string res = "";
-            for (int i = 1; i < 20; i++) {
-                res += (50 + 50 * Math.Log(i)) + "\n";
-            }
-            MessageBox.Show(DateTime.Now.ToLongTimeString());
-           
         }
 
         /// <summary>

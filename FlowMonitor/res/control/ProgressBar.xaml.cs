@@ -1,4 +1,5 @@
-﻿using System;
+﻿using onewater.flowmonitor.common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,18 @@ namespace onewater.flowmonitor.res.control
         public ProgressBar()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// 动态改变进度条长度
+        /// </summary>
+        /// <param name="rate"></param>
+        public void Goto(double rate)
+        {
+            CAAnimation.PlayAnimation(this.back.ActualWidth,
+                                      this.Width * rate,
+                                      UserControl.WidthProperty,
+                                      this.back);
         }
     }
 }

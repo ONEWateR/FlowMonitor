@@ -55,8 +55,6 @@ namespace onewater.flowmonitor.core
         /// <returns></returns>
         public static void Write()
         {
-
-           
             foreach (Flow f in FlowMonitor.GetMonitor().GetViewData())
             {
                 WriteDataByFlow(f);
@@ -112,9 +110,11 @@ namespace onewater.flowmonitor.core
         }
 
         /// <summary>
+        /// [JS]
         /// 获取某年某月的流量使用情况。
         /// 即那月份的每天流量使用情况。
         /// 返回一个数组字符串。
+        /// eg: 100,256,123,....,115
         /// </summary>
         /// <param name="year">年份</param>
         /// <param name="month">月份</param>
@@ -152,6 +152,7 @@ namespace onewater.flowmonitor.core
         }
 
         /// <summary>
+        /// [JS]
         /// 获取某天的流量使用情况
         /// </summary>
         /// <param name="year"></param>
