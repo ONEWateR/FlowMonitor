@@ -4,16 +4,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:converter="clr-namespace:onewater.flowmonitor.core"
-             xmlns:control="clr-namespace:onewater.flowmonitor.control" x:Class="onewater.flowmonitor.windows.FlowMonitorWindow"
+             xmlns:control="clr-namespace:onewater.flowmonitor.res.control" x:Class="onewater.flowmonitor.windows.FlowMonitorWindow"
              mc:Ignorable="d" 
              d:DesignHeight="570" d:DesignWidth="765">
     <Grid>
         <!-- 0 -->
         
             <Label Style="{StaticResource TitleLabel}" Content="今日使用情况" HorizontalAlignment="Center" Margin="36,17,627,0" VerticalAlignment="Top"  />
-            <control:ProgressBar HorizontalAlignment="Left" Height="27" Margin="64,55,0,0" VerticalAlignment="Top" Width="626"/>
-            <Label x:Name="max" Content="每日流量警告线：200 MB" HorizontalAlignment="Left" Margin="540,87,0,0" VerticalAlignment="Top"/>
-            <Label x:Name="rest" Content="Label" HorizontalAlignment="Left" Margin="64,87,0,0" VerticalAlignment="Top"/>
+            <control:ProgressBar x:Name="probar" HorizontalAlignment="Left" Height="27" Margin="64,55,0,0" VerticalAlignment="Top" Width="626"/>
+        <Label x:Name="max" Content="WARNING" HorizontalAlignment="Left" Margin="538,87,0,0" VerticalAlignment="Top" Width="152" HorizontalContentAlignment="Right" />
+            <Label x:Name="rest" Content="REST" HorizontalAlignment="Left" Margin="64,87,0,0" VerticalAlignment="Top" Width="140"/>
         
         <!-- 1 -->
         <Label Style="{StaticResource TitleLabel}" Content="实时监控" HorizontalAlignment="Center" Margin="36,136,655,0" VerticalAlignment="Top"/>

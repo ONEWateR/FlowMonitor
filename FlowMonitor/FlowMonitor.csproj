@@ -13,6 +13,21 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
+    <PublishUrl>发布\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -20,7 +35,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -41,9 +56,11 @@
       <HintPath>..\..\..\..\..\Desktop\CASpirit\CASpirit\bin\Debug\SharpPcap.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.SQLite">
+    <Reference Include="System.Data.SQLite, Version=1.0.66.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
       <HintPath>..\..\..\..\..\Desktop\CASpirit\CASpirit\bin\Debug\System.Data.SQLite.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
@@ -63,22 +80,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="control\ProgressBar.xaml.cs">
+    <Compile Include="common\CAAnimation.cs" />
+    <Compile Include="core\Histroy.cs" />
+    <Compile Include="core\Remind.cs" />
+    <Compile Include="res\control\ProgressBar.xaml.cs">
       <DependentUpon>ProgressBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="core\Converter.cs" />
     <Compile Include="windows\FlowMonitorWindow.xaml.cs">
       <DependentUpon>FlowMonitorWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="control\MainNav.xaml">
+    <Page Include="res\control\MainNav.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="control\MainNavButton.xaml">
+    <Page Include="res\control\MainNavButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="control\ProgressBar.xaml">
+    <Page Include="res\control\ProgressBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -93,10 +113,10 @@
     <Compile Include="app\AppConfig.cs" />
     <Compile Include="common\CSharpToJS.cs" />
     <Compile Include="common\SQLiteDBHelper.cs" />
-    <Compile Include="control\MainNav.xaml.cs">
+    <Compile Include="res\control\MainNav.xaml.cs">
       <DependentUpon>MainNav.xaml</DependentUpon>
     </Compile>
-    <Compile Include="control\MainNavButton.xaml.cs">
+    <Compile Include="res\control\MainNavButton.xaml.cs">
       <DependentUpon>MainNavButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="core\Flow.cs" />
@@ -150,13 +170,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="App.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="res\img\icon\history_icon_n.png" />
+    <Resource Include="res\img\icon\history_icon_s.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="res\img\button\mie.png" />
     <Resource Include="res\img\button\mim.png" />
@@ -182,13 +206,35 @@
     <Resource Include="res\img\icon\about_icon_s.png" />
     <Resource Include="res\img\icon\fw_icon_n.png" />
     <Resource Include="res\img\icon\fw_icon_s.png" />
-    <Resource Include="res\img\icon\home_icon_n.png" />
     <Resource Include="res\img\icon\home_icon_s.png" />
+    <Resource Include="res\img\icon\home_icon_n.png" />
     <Resource Include="res\img\icon\rs_icon_n.png" />
     <Resource Include="res\img\icon\rs_icon_s.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="res\img\icon\line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

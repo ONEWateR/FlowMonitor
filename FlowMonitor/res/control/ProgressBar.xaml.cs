@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace onewater.flowmonitor.control
+namespace onewater.flowmonitor.res.control
 {
     /// <summary>
     /// ProgressBar.xaml 的交互逻辑

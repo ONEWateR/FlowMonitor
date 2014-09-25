@@ -1,4 +1,5 @@
 ﻿using onewater.flowmonitor.core;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,10 +24,18 @@ namespace onewater.flowmonitor.windows
         public FlowMonitorWindow()
         {
             InitializeComponent();
+
+            // 数据源与后台数据连接。
+            
+            datagrid.ItemsSource = FlowMonitor.GetMonitor().GetViewData();
+        }
+
+        /// <summary>
+        /// 刷新进度条
+        /// </summary>
+        private void RefreshProgressBar()
+        {
+
         }
     }
-
-
-
-
 }

@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace onewater.flowmonitor.control
+namespace onewater.flowmonitor.res.control
 {
     /// <summary>
     /// MainNavButton.xaml 的交互逻辑

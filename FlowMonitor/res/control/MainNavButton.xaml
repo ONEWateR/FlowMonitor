@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="onewater.flowmonitor.control.MainNavButton"
+﻿<UserControl x:Class="onewater.flowmonitor.res.control.MainNavButton"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,7 +7,7 @@
              d:DesignHeight="68" d:DesignWidth="160">
     <Grid MouseUp="Grid_MouseUp_1" >
         <Rectangle x:Name="bg" Fill="#FF0290E2" HorizontalAlignment="Left" Height="68" VerticalAlignment="Top" Width="160"/>
-        <Image x:Name="icon" HorizontalAlignment="Left" Height="34" Margin="13,18,0,0" VerticalAlignment="Top" Width="34" Source="../res/img/icon/fw_icon_n.png"/>
+        <Image x:Name="icon" HorizontalAlignment="Left" Height="34" Margin="13,18,0,0" VerticalAlignment="Top" Width="34" Source="../img/icon/fw_icon_n.png"/>
         <Label x:Name="content" Content="流量监控" HorizontalAlignment="Left" Margin="59,19,0,0" VerticalAlignment="Top" Width="91" Foreground="White" FontSize="18" FontFamily="微軟正黑體" Background="{x:Null}" />
     </Grid>
 </UserControl>

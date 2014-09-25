@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("res/img/line.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("res/img/icon/history_icon_n.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("res/img/icon/history_icon_s.png")]
 
 

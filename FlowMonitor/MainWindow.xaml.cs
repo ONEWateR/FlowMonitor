@@ -1,6 +1,8 @@
 ﻿using onewater.flowmonitor.app;
+using onewater.flowmonitor.common;
+using onewater.flowmonitor.res;
+using onewater.flowmonitor.core;
 using onewater.flowmonitor.windows;
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using onewater.flowmonitor.res.control;
 
 namespace onewater
 {
@@ -22,10 +25,35 @@ namespace onewater
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        private UserControl[] windows = new UserControl[]{
+            null, null, null, null
+        };
+
         public MainWindow()
         {
             InitializeComponent();
-            this.contentControl.Content = new FlowMonitorWindow();
+
+
+
+            this.Closed += (a, b) =>
+            {
+                FlowMonitor.GetMonitor().Close();
+            };
+
+            string res = "";
+            for (int i = 1; i < 20; i++) {
+                res += (50 + 50 * Math.Log(i)) + "\n";
+            }
+            MessageBox.Show(DateTime.Now.ToLongTimeString());
+           
+        }
+
+        /// <summary>
+        /// 程序启动相关操作
+        /// </summary>
+        private void Startup() 
+        {
         }
 
         /// <summary>
@@ -36,6 +64,37 @@ namespace onewater
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             mainNav.init(AppConfig.NavData);
+            foreach (var item in MainNav.mnbs)
+            {
+                item.MouseDown += (a, b) => {
+                    int id = ((MainNavButton)a).id;
+                    ShowWindow(id);
+                };
+            }
+
+            
+            ShowWindow(0);
         }
+
+        /// <summary>
+        /// 显示窗口
+        /// </summary>
+        /// <param name="id"></param>
+        private void ShowWindow(int id)
+        {
+            if (windows[id] == null)
+            {
+                switch (id)
+                {
+                    case 0:
+                        windows[id] = new FlowMonitorWindow();
+                        break;
+                }
+
+            }
+            CAAnimation.Show(this.contentControl);
+            this.contentControl.Content = windows[id];
+        }
+
     }
 }

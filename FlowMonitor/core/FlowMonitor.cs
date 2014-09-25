@@ -42,13 +42,10 @@ namespace onewater.flowmonitor.core
         enum ProtocolType { TCP, UDP };                             // 协议类型 ： TCP 和 UDP
         IPAddress hostIP;                                           // 本机IP地址
         int psid = -1;                                              // 程序内部有流量程序的唯一标识ID
-        long downFlow = 0;                                          // 下载流量（程序关闭则归0，下同）
-        long upFlow = 0;                                            // 上传流量
         Hashtable PID_port_tcp = new Hashtable();                   // 端口 PID 临时映射表 TCP
         Hashtable PID_port_udp = new Hashtable();                   // 端口 PID 临时映射表 UDP
         Hashtable processFlow = new Hashtable();                    // 进程流量
         ArrayList packet_array = new ArrayList();                   // 临时存储包
-        bool firstHistory = true;                                   // 打开历史是否读取数据库的布尔值
         BackgroundWorker backgroundWorker1;                         // 监控专用线程
         Timer MainTimer = new Timer();                              // 每秒对抓包数据进行分析的 Timer
         UInt32[] TheDayFlow = { 0, 0 };                             // 当天 上传 下载 的流量 （外网）
@@ -96,8 +93,8 @@ namespace onewater.flowmonitor.core
             // 创建数据库记录流量使用情况
             try
             {
-                //SQLite.Create();
-                //TheDayFlow = SQLite.GetTheDayFlow(DateTime.Now);
+                Histroy.Init();
+                TheDayFlow = Histroy.GetTheDayFlow(DateTime.Now);
             }
             catch (Exception e)
             {
@@ -113,7 +110,7 @@ namespace onewater.flowmonitor.core
             Timer FlowWriteTimer = new Timer();
             FlowWriteTimer.Elapsed += (a, b) =>
             {
-                //SQLite.Write();
+                Histroy.Write();
             };
             FlowWriteTimer.Interval = 60 * 1000;
             FlowWriteTimer.Start();
@@ -314,8 +311,8 @@ namespace onewater.flowmonitor.core
         /// <param name="e"></param>
         private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            // 延迟 1s 开启监控
-            System.Threading.Thread.Sleep(1000);
+            // 延迟 1.5s 开启监控
+            //System.Threading.Thread.Sleep(1500);
 
             try
             {
@@ -393,10 +390,8 @@ namespace onewater.flowmonitor.core
                 var device = CaptureDeviceList.Instance[i];
                 device.StopCapture();
             }
-            //SQLite.Write();
+            Histroy.Write();
         }
-
-        int time = 0;
 
         /// <summary>
         /// 处理捕获的包。
@@ -506,6 +501,7 @@ namespace onewater.flowmonitor.core
                         System.Windows.Application.Current.Dispatcher.Invoke(new Action(delegate
                         {
                             ViewData.Remove(f);
+                            Histroy.WriteDataByFlow(f);
                         }));
                         break;
                     }
