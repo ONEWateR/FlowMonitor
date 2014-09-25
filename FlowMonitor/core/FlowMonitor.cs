@@ -48,10 +48,13 @@ namespace onewater.flowmonitor.core
         ArrayList packet_array = new ArrayList();                   // 临时存储包
         BackgroundWorker backgroundWorker1;                         // 监控专用线程
         Timer MainTimer = new Timer();                              // 每秒对抓包数据进行分析的 Timer
-        UInt32[] TheDayFlow = { 0, 0 };                             // 当天 上传 下载 的流量 （外网）
+        //UInt32[] TheDayFlow = { 0, 0 };                             // 当天 上传 下载 的流量 （外网）
         ObsCollection<Flow> ViewData = new ObsCollection<Flow>();   // 视图数据
         ArrayList SpecialPID = new ArrayList () { 0, 4, 32, 128 };  // 特殊进程 PID 不显示
         string[] SpecialPath = { "" };                              // TODO：特殊程序不显示
+
+
+        TheDayFlow theDayFlow = new TheDayFlow();
 
         #endregion
 
@@ -94,7 +97,7 @@ namespace onewater.flowmonitor.core
             try
             {
                 Histroy.Init();
-                TheDayFlow = Histroy.GetTheDayFlow(DateTime.Now);
+                theDayFlow = Histroy.GetTheDayFlow(DateTime.Now);
             }
             catch (Exception e)
             {
@@ -172,13 +175,7 @@ namespace onewater.flowmonitor.core
             return localIP;
         }
 
-        /// <summary>
-        /// 返回视图数据。
-        /// </summary>
-        /// <returns></returns>
-        public ObservableCollection<Flow> GetViewData() {
-            return ViewData;
-        }
+
 
 
         /// <summary>
@@ -288,8 +285,18 @@ namespace onewater.flowmonitor.core
         /// [总流量, 上传流量]
         /// </summary>
         /// <returns></returns>
-        public UInt32[] GetTheDayFlow() {
-            return new UInt32[] { TheDayFlow[0] + TheDayFlow[1], TheDayFlow[0] };
+        public TheDayFlow GetTheDayFlow()
+        {
+            return theDayFlow;
+        }
+
+        /// <summary>
+        /// 返回视图数据。
+        /// </summary>
+        /// <returns></returns>
+        public ObservableCollection<Flow> GetViewData()
+        {
+            return ViewData;
         }
 
         /* --------------------------------------------------- */
@@ -485,8 +492,8 @@ namespace onewater.flowmonitor.core
                 f.UpFlow += f.lastUp;
                 f.DownFlow += f.lastDown;
 
-                TheDayFlow[0] += f.lastUp;
-                TheDayFlow[1] += f.lastDown;
+                theDayFlow.up += f.lastUp;
+                theDayFlow.down += f.lastDown;
 
                 f.UpSpeed = f.lastUp;
                 f.DownSpeed = f.lastDown;
@@ -530,4 +537,14 @@ namespace onewater.flowmonitor.core
                             System.Collections.Specialized.NotifyCollectionChangedAction.Reset));
         }
     }
+
+    public class TheDayFlow
+    {
+        public UInt32 down = 0, up = 0;
+        public UInt32 all
+        {
+            get { return down + up; }
+        }
+    }
+
 }

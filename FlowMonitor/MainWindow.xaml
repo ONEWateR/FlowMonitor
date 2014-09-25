@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:control="clr-namespace:onewater.flowmonitor.res.control" x:Class="onewater.MainWindow"
         Style="{StaticResource OWindow}"
-        Loaded="Window_Loaded"
+        WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded" 
         Title="流量监控" Height="620" Width="945">
     <Grid>
         <control:MainNav x:Name="mainNav"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,-30,0,0"/>

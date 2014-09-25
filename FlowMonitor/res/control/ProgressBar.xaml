@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="50" d:DesignWidth="638">
         <Grid>
-            <Rectangle x:Name="back" HorizontalAlignment="Left" Width="0"  VerticalAlignment="Stretch" Fill="#FF3EAAE8"/>
+        <Rectangle x:Name="back" HorizontalAlignment="Left" Width="638"  VerticalAlignment="Stretch" Fill="#FF51BAFE"/>
             <Rectangle x:Name="border" HorizontalAlignment="Stretch"  Stroke="#FFD4D4D4" VerticalAlignment="Stretch"/>
         </Grid>
 </UserControl>

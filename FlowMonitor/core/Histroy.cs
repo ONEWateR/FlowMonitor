@@ -187,8 +187,9 @@ namespace onewater.flowmonitor.core
         /// </summary>
         /// <param name="dt">时间</param>
         /// <returns></returns>
-        public static UInt32[] GetTheDayFlow(DateTime dt)
+        public static TheDayFlow GetTheDayFlow(DateTime dt)
         {
+            TheDayFlow theDayFlow = new TheDayFlow();
             UInt32[] result = new UInt32[2] { 0, 0 };
             string sql;
             object value;
@@ -204,7 +205,10 @@ namespace onewater.flowmonitor.core
             if (System.DBNull.Value.Equals(value)) result[1] = 0;
             else result[1] = Convert.ToUInt32(value);
 
-            return result;
+            theDayFlow.up = result[0];
+            theDayFlow.down = result[1];
+
+            return theDayFlow;
         }
 
 

@@ -29,7 +29,7 @@ namespace onewater.flowmonitor.common
 
             ThicknessAnimation animtion = new ThicknessAnimation()
             {
-                From = new Thickness(target.Margin.Left + 150, target.Margin.Top, target.Margin.Right, target.Margin.Bottom),
+                From = new Thickness(target.Margin.Left + 80, target.Margin.Top, target.Margin.Right, target.Margin.Bottom),
                 To = new Thickness(160, 0, 0, 0),
                 Duration = TimeSpan.FromSeconds(duration),
                 FillBehavior = FillBehavior.HoldEnd,

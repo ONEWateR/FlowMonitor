@@ -13,7 +13,7 @@ namespace onewater.flowmonitor.core
     public class Remind
     {
 
-        private UInt32[] theDayFlow = new UInt32[] { };                 // 当天流量 [总，上传]
+        private TheDayFlow theDayFlow = new TheDayFlow();               // 当天流量 [总，上传]
         private short[] remindTime = new short[] { };                   // 提醒次数 [总，上传]
         private UInt32 warningALL = 0;                                  // 总流量警告线
         private UInt32 warningUP = 0;                                   // 上传流量警告线
@@ -52,25 +52,24 @@ namespace onewater.flowmonitor.core
         {
             // 获取数据
             theDayFlow = FlowMonitor.GetMonitor().GetTheDayFlow();
-            // 更新进度条
 
             // 判断现在是否为新的一天
             if (DateTime.Now.ToLongTimeString() == "00:00:00")
             {
-                theDayFlow = new UInt32[] { 0, 0 };
+                theDayFlow.down = theDayFlow.up = 0;
                 remindTime = new short[] { 0, 0 };
                 SetRemindTime(remindTime[0], remindTime[1]);
             }
 
             // 判断是否超过警告线流量
-            if (theDayFlow[0] >= warningALL)
+            if (theDayFlow.all >= warningALL)
             {
                 // 提醒超过流量
                 // 设置新的警告上限
                 RefreshWarningData(++remindTime[0], FlowType.ALL);
                 SetRemindTime(remindTime[0], remindTime[1]);
             }
-            if (theDayFlow[1] >= warningUP)
+            if (theDayFlow.up >= warningUP)
             {
                 RefreshWarningData(++remindTime[1], FlowType.UP);
                 SetRemindTime(remindTime[0], remindTime[1]);

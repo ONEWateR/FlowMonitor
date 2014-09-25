@@ -62,7 +62,6 @@
                 <DataGridTextColumn Width="100" Binding="{Binding TotalFlow, Converter={StaticResource IntToFlowConverter}}" Header="总流量[外]"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="413,112,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
 
 
 

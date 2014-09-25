@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
+using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -31,38 +31,36 @@ namespace onewater.flowmonitor.windows
             // 新建提醒对象
             Remind remind = new Remind();
             remind.Init();
-            
+
+            double lastRate = 0;
+
             // 新建定时器
-            Timer FMTimer = new Timer((e) =>
+            Timer FMTimer = new Timer(1000);
+
+            FMTimer.Elapsed += (s, e) =>
             {
                 remind.Refresh();
-                
-                // 刷新[今日流量使用情况]
-                UInt32 a = FlowMonitor.GetMonitor().GetTheDayFlow()[0];
-                UInt32 b = remind.GetWarningALL();
+
                 System.Windows.Application.Current.Dispatcher.Invoke(new Action(delegate
                 {
-                    this.probar.Goto((b - a) / a);
+                    // 刷新[今日流量使用情况]
+                    UInt32 a = FlowMonitor.GetMonitor().GetTheDayFlow().all;
+                    UInt32 b = remind.GetWarningALL();
+                    double rate = (b - a) * 1.0 / b;
+                    if (rate - lastRate > 0.0001)
+                    {
+                        lastRate = rate;
+                        this.probar.Goto(rate);
+                    }
+                    
                     this.max.Content = "流量警告线：" + Flow.ChangeFlow(b);
-                    this.rest.Content = "还剩：" + Flow.ChangeFlow(a);
+                    this.rest.Content = "还剩：" + Flow.ChangeFlow(b - a);
                 }));
-            }, null, 0, 1000);
-            
+            };
+
+            FMTimer.Start();
             
         }
 
-        /// <summary>
-        /// 刷新进度条
-        /// </summary>
-        private void RefreshProgressBar()
-        {
-            this.probar.Goto(0.5);
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            Random r = new Random();
-            this.probar.Goto(r.NextDouble());
-        }
     }
 }
