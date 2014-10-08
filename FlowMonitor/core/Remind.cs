@@ -103,13 +103,13 @@ namespace onewater.flowmonitor.core
         {
             if (dt == FlowType.ALL)
             {
-                warningALL = 500 + Convert.ToUInt32(450 * Math.Log(i + 1));
+                warningALL = Properties.Settings.Default.WarningALL + Convert.ToUInt32(450 * Math.Log(i + 1));
                 //warningALL *= 1048576;
                 warningALL *= 1000000;
             }
             if (dt == FlowType.UP)
             {
-                warningUP = 50 + Convert.ToUInt32(450 * Math.Log(i + 1));
+                warningUP = Properties.Settings.Default.WarningUP + Convert.ToUInt32(450 * Math.Log(i + 1));
                 warningUP *= 1000000;
             }
         }

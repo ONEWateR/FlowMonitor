@@ -34,3 +34,5 @@ C:\Users\ONEWateR\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\
 C:\Users\ONEWateR\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\bin\Debug\FlowMonitor.exe.config
 C:\Users\ONEWateR\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\obj\Debug\windows\FlowHistoryWindow.g.cs
 C:\Users\ONEWateR\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\obj\Debug\windows\FlowHistoryWindow.baml
+C:\Users\ONEWateR\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\obj\Debug\windows\SettingWindow.baml
+C:\Users\ONEWateR\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\obj\Debug\windows\SettingWindow.g.cs

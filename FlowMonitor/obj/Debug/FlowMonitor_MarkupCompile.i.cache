@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG
 C:\Users\ONEWateR\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\App.xaml
-111641912871
+12540802356
 
-22629620976
+231619225511
 17-1342715477
-res\control\MainNav.xaml;res\control\MainNavButton.xaml;res\control\ProgressBar.xaml;MainWindow.xaml;res\ButtonStyle.xaml;res\ColTitle.xaml;res\ImageButton.xaml;res\DataGridStyle.xaml;res\WindowStyle.xaml;windows\FlowHistoryWindow.xaml;windows\FlowMonitorWindow.xaml;
+res\control\MainNav.xaml;res\control\MainNavButton.xaml;res\control\ProgressBar.xaml;MainWindow.xaml;res\ButtonStyle.xaml;res\ColTitle.xaml;res\ImageButton.xaml;res\DataGridStyle.xaml;res\WindowStyle.xaml;windows\FlowHistoryWindow.xaml;windows\FlowMonitorWindow.xaml;windows\SettingWindow.xaml;
 
 False
 

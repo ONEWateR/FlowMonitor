@@ -8,10 +8,10 @@
     <Setting Name="RemindUP" Type="System.Int16" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="WarningALL" Type="System.Int64" Scope="User">
+    <Setting Name="WarningALL" Type="System.UInt32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="WarningUP" Type="System.Int64" Scope="User">
+    <Setting Name="WarningUP" Type="System.UInt32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="UnableRemind" Type="System.Boolean" Scope="User">
