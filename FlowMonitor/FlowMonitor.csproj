@@ -87,6 +87,9 @@
       <DependentUpon>ProgressBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="core\Converter.cs" />
+    <Compile Include="windows\AboutWindow.xaml.cs">
+      <DependentUpon>AboutWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="windows\FlowHistoryWindow.xaml.cs">
       <DependentUpon>FlowHistoryWindow.xaml</DependentUpon>
     </Compile>
@@ -150,6 +153,10 @@
     <Page Include="res\WindowStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="windows\AboutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="windows\FlowHistoryWindow.xaml">
       <SubType>Designer</SubType>

@@ -89,6 +89,9 @@ namespace onewater
                     case 2:
                         windows[id] = new SettingWindow();
                         break;
+                    case 3:
+                        windows[id] = new AboutWindow();
+                        break;
                 }
             }
             CAAnimation.Show(this.contentControl);
