@@ -12,5 +12,29 @@ namespace onewater
     /// </summary>
     public partial class App : Application
     {
+
+        void App_Startup(object sender, StartupEventArgs e)
+        {
+            bool startMinimized = false;
+            for (int i = 0; i != e.Args.Length; ++i)
+            {
+                MessageBox.Show(e.Args[i]);
+                if (e.Args[i] == "/AutoStartup")
+                {
+                    startMinimized = true;
+                }
+            }
+
+            MainWindow mainWindow = new MainWindow();
+            if (startMinimized)
+            {
+                mainWindow.WindowState = WindowState.Minimized;
+                mainWindow.ShowInTaskbar = false;
+
+            }
+            mainWindow.Show();
+
+
+        }
     }
 }

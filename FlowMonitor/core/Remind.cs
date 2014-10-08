@@ -1,4 +1,6 @@
-﻿using System;
+﻿using RemindLibrary;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +35,9 @@ namespace onewater.flowmonitor.core
             RefreshWarningData(remindTime[1], FlowType.UP);
         }
 
+
+
+
         /// <summary>
         /// 获取本地数据，包括当天使用的流量大小，提醒次数
         /// </summary>
@@ -65,12 +70,15 @@ namespace onewater.flowmonitor.core
             if (theDayFlow[0] >= warningALL)
             {
                 // 提醒超过流量
+                ShowRemindWindow();
                 // 设置新的警告上限
                 RefreshWarningData(++remindTime[0], FlowType.ALL);
                 SetRemindTime(remindTime[0], remindTime[1]);
             }
             if (theDayFlow[1] >= warningUP)
             {
+                // 提醒超过流量
+                ShowRemindWindow();
                 RefreshWarningData(++remindTime[1], FlowType.UP);
                 SetRemindTime(remindTime[0], remindTime[1]);
             }
@@ -89,7 +97,15 @@ namespace onewater.flowmonitor.core
             {
                 if (!Properties.Settings.Default.UnableRemindTheDay)
                 {
-                    // 提醒窗口
+
+                    System.Windows.Application.Current.Dispatcher.Invoke(new Action(delegate
+                    {
+                        // 提醒窗口
+                        string content = string.Format("你的流量已超过警告线！！");
+                        RemindWindow rw = new RemindWindow("警告", content, RemindIcon.Warning);
+                        rw.Show();
+                    }));
+                    
                 }
             }
         }

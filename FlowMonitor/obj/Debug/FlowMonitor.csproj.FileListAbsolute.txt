@@ -38,3 +38,9 @@ C:\Users\ONEWateR\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\
 C:\Users\ONEWateR\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\obj\Debug\windows\SettingWindow.g.cs
 C:\Users\ONEWateR\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\obj\Debug\windows\AboutWindow.baml
 C:\Users\ONEWateR\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\obj\Debug\windows\AboutWindow.g.cs
+C:\Users\ONEWateR\Documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\bin\Debug\RemindLibrary.dll
+C:\Users\ONEWateR\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\bin\Debug\FlowMonitor.exe.manifest
+C:\Users\ONEWateR\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\bin\Debug\FlowMonitor.application
+C:\Users\ONEWateR\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\obj\Debug\FlowMonitor.TrustInfo.xml
+C:\Users\ONEWateR\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\obj\Debug\FlowMonitor.exe.manifest
+C:\Users\ONEWateR\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\obj\Debug\FlowMonitor.application

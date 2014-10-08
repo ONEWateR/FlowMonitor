@@ -1,4 +1,5 @@
-﻿using System;
+﻿using onewater.flowmonitor.common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,6 +33,7 @@ namespace onewater.flowmonitor.windows
         {
             x0201.Text = Properties.Settings.Default.WarningALL.ToString();
             x0202.Text = Properties.Settings.Default.WarningUP.ToString();
+            x0101.IsChecked = AutoRun.isHaveKey();
         }
 
         private void Apply()
@@ -41,6 +43,19 @@ namespace onewater.flowmonitor.windows
                 Properties.Settings.Default.WarningALL = uint.Parse(x0201.Text);
                 Properties.Settings.Default.WarningUP = uint.Parse(x0202.Text);
                 Properties.Settings.Default.Save();
+
+                bool result = false;
+                if (x0101.IsChecked == true)
+                {
+                    result = AutoRun.Set(System.Windows.Forms.Application.ExecutablePath);
+                }else{
+                    result = AutoRun.Delete();
+                }
+                if (result == false)
+                {
+                    x0101.IsChecked = false;
+                }
+
             }
             catch (Exception e)
             {
@@ -51,6 +66,9 @@ namespace onewater.flowmonitor.windows
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             Apply();
+
+
+
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)

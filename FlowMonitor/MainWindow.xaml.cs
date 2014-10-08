@@ -17,6 +17,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using onewater.flowmonitor.res.control;
+using RemindLibrary;
+
 
 namespace onewater
 {
@@ -29,6 +31,7 @@ namespace onewater
         private UserControl[] windows = new UserControl[]{
             null, null, null, null
         };
+        System.Windows.Forms.NotifyIcon notifyIcon;
 
         public MainWindow()
         {
@@ -38,8 +41,47 @@ namespace onewater
 
             this.Closed += (a, b) =>
             {
+                this.notifyIcon.Visible = false;
                 FlowMonitor.GetMonitor().Close();
             };
+
+            MakeIcon();
+
+
+            if (!AutoRun.isHaveKey())
+            {
+                AutoRun.Set(System.Windows.Forms.Application.ExecutablePath);
+            }
+
+        }
+
+        private void MakeIcon()
+        {
+       
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon();
+            this.notifyIcon.Icon = new System.Drawing.Icon("program_icon.ico");
+            this.notifyIcon.Text = "流量监控 - CA";
+            this.notifyIcon.Visible = true;
+            this.notifyIcon.DoubleClick += new System.EventHandler(notifyIcon_DoubleClick);
+
+            System.Windows.Forms.ContextMenu menu = new System.Windows.Forms.ContextMenu();
+
+            System.Windows.Forms.MenuItem close = new System.Windows.Forms.MenuItem();
+            close.Text = "退出";
+            close.Click += new EventHandler(delegate { this.Close(); });
+            menu.MenuItems.Add(close);
+
+            this.notifyIcon.ContextMenu = menu;
+            
+            
+        }
+
+
+
+        private void notifyIcon_DoubleClick(object sender, EventArgs e)
+        {
+            this.ShowInTaskbar = true;
+            this.WindowState = WindowState.Normal;
 
         }
 
@@ -49,6 +91,17 @@ namespace onewater
         private void Startup() 
         {
         }
+
+
+        /// <summary>
+        /// 开机启动
+        /// </summary>
+        public static void ShowByAuto()
+        {
+            MessageBox.Show("aa");
+            
+        }
+        
 
         /// <summary>
         /// 窗口载入事件
@@ -96,6 +149,14 @@ namespace onewater
             }
             CAAnimation.Show(this.contentControl);
             this.contentControl.Content = windows[id];
+        }
+
+        private void Window_StateChanged_1(object sender, EventArgs e)
+        {
+            if (this.WindowState == WindowState.Minimized)
+            {
+                this.ShowInTaskbar = false;
+            }
         }
 
     }

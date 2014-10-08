@@ -6,8 +6,6 @@
              mc:Ignorable="d" 
              xmlns:converter="clr-namespace:onewater.flowmonitor.core"
              d:DesignHeight="570" d:DesignWidth="765">
-
-
     <Grid>
         <Grid.Resources>
             <converter:IntToFlowConverter x:Key="IntToFlowConverter"/>
