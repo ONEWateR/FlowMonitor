@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="onewater.flowmonitor.windows.FlowHistoryWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:converter="clr-namespace:onewater.flowmonitor.core"
+             d:DesignHeight="570" d:DesignWidth="765">
+
+
+    <Grid>
+        <Grid.Resources>
+            <converter:IntToFlowConverter x:Key="IntToFlowConverter"/>
+            <converter:IntToFlowSpeedConverter x:Key="IntToFlowSpeedConverter"/>
+            <converter:IconToImageConverter x:Key="IconToImageConverter"/>
+
+            <DataTemplate x:Key="ItemTemplate">
+                <StackPanel Orientation="Horizontal">
+                    <Image VerticalAlignment="Top" Height="32"  Source="{Binding icon, Converter={StaticResource IconToImageConverter}}"  />
+                    <StackPanel Margin="5,0,0,0">
+                        <TextBlock FontSize="14" Text="{Binding name}"/>
+                        <TextBlock Text="{Binding TotalFlow, Converter={StaticResource IntToFlowConverter}}" FontSize="12" Foreground="#FF6E6E6E"/>
+                    </StackPanel>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="SelectedTemplate">
+                <StackPanel Orientation="Horizontal">
+                    <Image VerticalAlignment="Top"  Height="32"  Source="{Binding icon, Converter={StaticResource IconToImageConverter}}"  />
+                    <StackPanel Margin="5,0,0,0">
+                        <TextBlock FontSize="14" Text="{Binding name}"/>
+                        <TextBlock Text="{Binding TotalFlow, Converter={StaticResource IntToFlowConverter}}" FontSize="12" Foreground="#FF6E6E6E"/>
+                        <TextBlock Margin="0,5,0,0" MaxWidth="200"  Text="{Binding UpFlow, Converter={StaticResource IntToFlowConverter}, StringFormat=上传：\{0\}}" Foreground="#FF6E6E6E"/>
+                        <TextBlock Margin="0,5,0,0" MaxWidth="200"  Text="{Binding DownFlow, Converter={StaticResource IntToFlowConverter}, StringFormat=下载：\{0\}}" Foreground="#FF6E6E6E"/>
+                    </StackPanel>
+                </StackPanel>
+            </DataTemplate>
+
+
+
+        </Grid.Resources>
+        <Label Style="{StaticResource TitleLabel}" Content="流量使用排行榜" HorizontalAlignment="Center" Margin="36,37,605,0" VerticalAlignment="Top"/>
+        <StackPanel HorizontalAlignment="Left" Width="210" Margin="62,95,0,21">
+            <ComboBox x:Name="ViewCombox" FontSize="14" HorizontalAlignment="Stretch" VerticalAlignment="Top"  Height="21" SelectionChanged="ViewCombox_SelectionChanged">
+                <ComboBoxItem Content="当月流量"/>
+                <ComboBoxItem Content="昨天流量"/>
+                <ComboBoxItem Content="今天流量"/>
+            </ComboBox>
+
+            <ListBox ItemsSource="{Binding}" x:Name="ViewList" HorizontalAlignment="Stretch" Height="420" VerticalAlignment="Top" SelectionChanged="ViewList_SelectionChanged" >
+                <ListBox.Resources>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <Setter Property="ContentTemplate" Value="{StaticResource ItemTemplate}" />
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="ContentTemplate" Value="{StaticResource SelectedTemplate}" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListBox.Resources>
+
+            </ListBox>
+        </StackPanel>
+        <Label Content="这里放个图表就好多了。思路就是利用C#和JS的交互，然后使用百度的图表插件。但目前有一个问题在于nostyle的window是无法正常内置webview的" HorizontalAlignment="Left" Margin="289,95,0,0" VerticalAlignment="Top" Height="437" Width="466" BorderThickness="1" BorderBrush="#FF3EAEF1"/>
+    </Grid>
+</UserControl>

@@ -83,8 +83,10 @@ namespace onewater
                     case 0:
                         windows[id] = new FlowMonitorWindow();
                         break;
+                    case 1:
+                        windows[id] = new FlowHistoryWindow();
+                        break;
                 }
-
             }
             CAAnimation.Show(this.contentControl);
             this.contentControl.Content = windows[id];

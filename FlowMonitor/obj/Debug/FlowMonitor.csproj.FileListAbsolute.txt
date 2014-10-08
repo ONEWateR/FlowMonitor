@@ -19,7 +19,6 @@ C:\Users\ONEWateR\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\
 C:\Users\ONEWateR\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\bin\Debug\FlowMonitor.pdb
 C:\Users\ONEWateR\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\bin\Debug\PacketDotNet.dll
 C:\Users\ONEWateR\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\bin\Debug\SharpPcap.dll
-C:\Users\ONEWateR\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\bin\Debug\System.Data.SQLite.dll
 C:\Users\ONEWateR\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\bin\Debug\PacketDotNet.xml
 C:\Users\ONEWateR\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\bin\Debug\SharpPcap.xml
 C:\Users\ONEWateR\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\obj\Debug\MainWindow.baml
@@ -33,3 +32,5 @@ C:\Users\ONEWateR\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\
 C:\Users\ONEWateR\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\obj\Debug\FlowMonitor.pdb
 C:\Users\ONEWateR\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\obj\Debug\FlowMonitor.csprojResolveAssemblyReference.cache
 C:\Users\ONEWateR\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\bin\Debug\FlowMonitor.exe.config
+C:\Users\ONEWateR\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\obj\Debug\windows\FlowHistoryWindow.g.cs
+C:\Users\ONEWateR\documents\visual studio 2012\Projects\FlowMonitor\FlowMonitor\obj\Debug\windows\FlowHistoryWindow.baml

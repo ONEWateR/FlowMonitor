@@ -44,7 +44,7 @@ namespace onewater.flowmonitor.windows
                 System.Windows.Application.Current.Dispatcher.Invoke(new Action(delegate
                 {
                     // 刷新[今日流量使用情况]
-                    UInt32 a = FlowMonitor.GetMonitor().GetTheDayFlow().all;
+                    UInt32 a = FlowMonitor.GetMonitor().GetTheDayFlow()[0];
                     UInt32 b = remind.GetWarningALL();
                     double rate = (b - a) * 1.0 / b;
                     if (rate - lastRate > 0.0001)
