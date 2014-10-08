@@ -53,6 +53,8 @@ namespace onewater
                 AutoRun.Set(System.Windows.Forms.Application.ExecutablePath);
             }
 
+
+
         }
 
         private void MakeIcon()
