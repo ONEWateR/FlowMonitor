@@ -94,5 +94,16 @@ namespace onewater.flowmonitor.Properties {
                 this["UnableRemindTheDay"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.DateTime LastRemindTime {
+            get {
+                return ((global::System.DateTime)(this["LastRemindTime"]));
+            }
+            set {
+                this["LastRemindTime"] = value;
+            }
+        }
     }
 }

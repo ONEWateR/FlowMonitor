@@ -28,11 +28,17 @@ namespace onewater.flowmonitor.core
         {
             // 获取本地存储的数据
             GetDataFromLocal();
-            
+
+            if (Properties.Settings.Default.LastRemindTime.Date != DateTime.Now.Date)
+            {
+                SetRemindTime();
+            }
+            SaveRemindDate();
+
             // 刷新警告上限的数据
-            
             RefreshWarningData(remindTime[0], FlowType.ALL);
             RefreshWarningData(remindTime[1], FlowType.UP);
+
         }
 
 
@@ -64,6 +70,7 @@ namespace onewater.flowmonitor.core
                 theDayFlow[0] = theDayFlow[1] = 0;
                 remindTime = new short[] { 0, 0 };
                 SetRemindTime(remindTime[0], remindTime[1]);
+                SaveRemindDate();
             }
 
             // 判断是否超过警告线流量
@@ -139,6 +146,12 @@ namespace onewater.flowmonitor.core
         {
             Properties.Settings.Default.RemindALL = s1;
             Properties.Settings.Default.RemindUP = s2;
+            Properties.Settings.Default.Save();
+        }
+
+        private void SaveRemindDate()
+        {
+            Properties.Settings.Default.LastRemindTime = DateTime.Now;
             Properties.Settings.Default.Save();
         }
 
