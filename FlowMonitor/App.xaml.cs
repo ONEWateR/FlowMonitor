@@ -18,7 +18,6 @@ namespace onewater
             bool startMinimized = false;
             for (int i = 0; i != e.Args.Length; ++i)
             {
-                MessageBox.Show(e.Args[i]);
                 if (e.Args[i] == "/AutoStartup")
                 {
                     startMinimized = true;
@@ -26,14 +25,14 @@ namespace onewater
             }
 
             MainWindow mainWindow = new MainWindow();
+
+            mainWindow.Show();
             if (startMinimized)
             {
                 mainWindow.WindowState = WindowState.Minimized;
                 mainWindow.ShowInTaskbar = false;
 
             }
-            mainWindow.Show();
-
 
         }
     }

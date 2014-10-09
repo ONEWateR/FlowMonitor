@@ -1,2 +1,7 @@
 
 FlowMonitor/obj
+
+FlowMonitor/bin/Debug/flow_history.db
+
+FlowMonitor/bin/Debug/*.exe
+FlowMonitor/bin/Debug/*.manifest

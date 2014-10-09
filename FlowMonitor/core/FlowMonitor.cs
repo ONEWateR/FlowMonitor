@@ -201,7 +201,7 @@ namespace onewater.flowmonitor.core
                     f.path = path;
                     // .FileVersionInfo.FileDescription
                     f.describe = p.MainModule.FileVersionInfo.FileDescription;
-                    f.icon = Icon.FromHandle(ExtractIcon(IntPtr.Zero, path, 0));
+                    f.icon = System.Drawing.Icon.ExtractAssociatedIcon(path);
 
                 }
                 catch (Exception e)
