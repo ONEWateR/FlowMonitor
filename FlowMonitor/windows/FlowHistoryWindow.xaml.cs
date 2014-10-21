@@ -76,13 +76,14 @@ namespace onewater.flowmonitor.windows
                 {
                     icon = new System.Drawing.Icon("program_icon.ico");
                 }
-
+                
                 f.id = id;
                 f.name = name;
                 f.path = path;
                 f.up = up;
                 f.down = down;
                 f.icon = icon;
+                //f.iconPath = icon;
 
                 BindData.Add(f);
             }

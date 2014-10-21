@@ -18,6 +18,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using onewater.flowmonitor.res.control;
 using RemindLibrary;
+using System.Timers;
 
 
 namespace onewater
@@ -53,15 +54,29 @@ namespace onewater
                 AutoRun.Set(System.Windows.Forms.Application.ExecutablePath);
             }
 
+            
 
+            timer.Elapsed += timer_Elapsed;
 
+            // 统计
+            analyticsBrowser.Navigate(new Uri("http://flowmonitor.jd-app.com/"));
+
+        }
+
+        Timer timer = new Timer(30000);
+
+        private void timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            windows[0] = null;
+            windows[1] = null;
+            timer.Stop();
         }
 
         private void MakeIcon()
         {
        
             this.notifyIcon = new System.Windows.Forms.NotifyIcon();
-            this.notifyIcon.Icon = new System.Drawing.Icon("program_icon.ico");
+            this.notifyIcon.Icon = new System.Drawing.Icon("flowmonitor.ico");
             this.notifyIcon.Text = "流量监控 - CA";
             this.notifyIcon.Visible = true;
             this.notifyIcon.DoubleClick += new System.EventHandler(notifyIcon_DoubleClick);
@@ -94,16 +109,6 @@ namespace onewater
         {
         }
 
-
-        /// <summary>
-        /// 开机启动
-        /// </summary>
-        public static void ShowByAuto()
-        {
-            MessageBox.Show("aa");
-            
-        }
-        
 
         /// <summary>
         /// 窗口载入事件
@@ -158,8 +163,16 @@ namespace onewater
             if (this.WindowState == WindowState.Minimized)
             {
                 this.ShowInTaskbar = false;
+                
+                timer.Start();
+                
+                
             }
+            if (this.WindowState == WindowState.Normal)
+                timer.Stop();
         }
+
+
 
     }
 }

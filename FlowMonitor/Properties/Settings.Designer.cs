@@ -49,7 +49,7 @@ namespace onewater.flowmonitor.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("500")]
         public uint WarningALL {
             get {
                 return ((uint)(this["WarningALL"]));
@@ -61,7 +61,7 @@ namespace onewater.flowmonitor.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("50")]
         public uint WarningUP {
             get {
                 return ((uint)(this["WarningUP"]));

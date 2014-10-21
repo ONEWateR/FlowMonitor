@@ -15,30 +15,9 @@ namespace onewater.flowmonitor.core
     /// <summary>
     /// 图标转换器
     /// </summary>
-    [ValueConversion(typeof(Icon), typeof(BitmapImage))]
+    [ValueConversion(typeof(String), typeof(BitmapImage))]
     public class IconToImageConverter : IValueConverter
     {
-        public BitmapImage BitmapToBitmapImage(Bitmap bitmap)
-        {
-            Bitmap bitmapSource = new Bitmap(bitmap.Width, bitmap.Height);
-            int i, j;
-            for (i = 0; i < bitmap.Width; i++)
-                for (j = 0; j < bitmap.Height; j++)
-                {
-                    System.Drawing.Color pixelColor = bitmap.GetPixel(i, j);
-                    System.Drawing.Color newColor = System.Drawing.Color.FromArgb(pixelColor.R, pixelColor.G, pixelColor.B);
-                    bitmapSource.SetPixel(i, j, newColor);
-                }
-            MemoryStream ms = new MemoryStream();
-            bitmapSource.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
-            BitmapImage bitmapImage = new BitmapImage();
-            bitmapImage.BeginInit();
-            bitmapImage.StreamSource = new MemoryStream(ms.ToArray());
-            bitmapImage.EndInit();
-
-            return bitmapImage;
-        }
-
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             Icon img = (Icon)value;
@@ -51,7 +30,6 @@ namespace onewater.flowmonitor.core
                       hBitmap, IntPtr.Zero, Int32Rect.Empty,
                       BitmapSizeOptions.FromEmptyOptions());
 
-            // return BitmapToBitmapImage(((Icon)value).ToBitmap());
             return wpfBitmap;
         }
 
