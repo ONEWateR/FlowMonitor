@@ -9,6 +9,7 @@
     <Grid>
         <control:MainNav x:Name="mainNav"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,-30,0,0"/>
         <ContentControl x:Name="contentControl" HorizontalAlignment="Left" Height="570" Margin="160,0,0,0" VerticalAlignment="Top" Width="765"/>
+        <WebBrowser x:Name="analyticsBrowser" HorizontalAlignment="Left" Height="100" Margin="251,337,0,0" VerticalAlignment="Top" Width="100" Visibility="Hidden" />
 
 
     </Grid>

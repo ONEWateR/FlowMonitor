@@ -22,6 +22,7 @@ namespace onewater.flowmonitor.core
         public string path;                             // 路径
         public string describe { get; set; }            // 描述
         public Icon icon { get; set; }                  // 图标
+        public string iconPath { get; set; }            // 图标路径
         public UInt32 up { get; set; }                  // [外] 上传流量
         public UInt32 down { get; set; }                // [外] 下载流量
         public UInt32 up_in;                            // [内] 上传流量
@@ -30,6 +31,7 @@ namespace onewater.flowmonitor.core
         public UInt32 note_down = 0;                    // 同上，下载流量
         public bool active = true;                      // 程序是否退出
         public List<int> pid = new List<int> { };       // PID列表，为了应对部分程序多开的情况下，将其全部进程归为同一个程序
+        
 
         // 外网总流量
         public UInt32 total_out() { 

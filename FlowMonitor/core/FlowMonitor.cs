@@ -110,6 +110,7 @@ namespace onewater.flowmonitor.core
             MainTimer.Enabled = true;
 
             // 每分钟写入流量信息。
+            /*
             Timer FlowWriteTimer = new Timer();
             FlowWriteTimer.Elapsed += (a, b) =>
             {
@@ -117,7 +118,7 @@ namespace onewater.flowmonitor.core
             };
             FlowWriteTimer.Interval = 60 * 1000;
             FlowWriteTimer.Start();
-
+            */
         }
 
         /// <summary>
@@ -476,7 +477,14 @@ namespace onewater.flowmonitor.core
                 }
             }
 
+            CreatePIDS();
+            CheckedExitPro();
+            ClearTable();
+            
+        }
 
+        private void CreatePIDS()
+        {
             // 获取所有处于运行状态的进程ID
             ActivePIDs = new List<int> { };
             foreach (Process p in Process.GetProcesses())
@@ -484,7 +492,12 @@ namespace onewater.flowmonitor.core
                 ActivePIDs.Add(p.Id);
             }
 
-            // 
+            
+
+        }
+
+        private void CheckedExitPro()
+        {
             foreach (DictionaryEntry de in processFlow)
             {
                 Flow f = (Flow)de.Value;
@@ -500,34 +513,47 @@ namespace onewater.flowmonitor.core
 
                 f.lastUp = 0;
                 f.lastDown = 0;
-
-
-                // 查看进程是否运行
-                bool active = true;
-                foreach (int pid in f.pid)
-                {
-                    if (ActivePIDs.IndexOf(pid) == -1)
-                    {
-                        active = false;
-                        System.Windows.Application.Current.Dispatcher.Invoke(new Action(delegate
-                        {
-                            ViewData.Remove(f);
-                            Histroy.WriteDataByFlow(f);
-                        }));
-                        break;
-                    }
-                }
-                f.active = active;
-
+                
             }
 
+
+            foreach (Flow flow in ViewData){
+                // 查看进程是否运行
+                bool active = false;
+                foreach (int pid in flow.pid)
+                {
+                    if (ActivePIDs.IndexOf(pid) != -1)
+                    {
+                        active = true;
+                    }else{
+                        flow.pid.Remove(pid);
+                    }
+                }
+                if (!active)
+                {
+                    System.Windows.Application.Current.Dispatcher.Invoke(new Action(delegate
+                    {
+                        ViewData.Remove(flow);
+                        Histroy.WriteDataByFlow(flow);
+                        
+                    }));
+                }
+            }
+
+            
+
+
+        }
+
+        private void ClearTable()
+        {
             // 清楚临时映射表
             PID_port_tcp.Clear();
             PID_port_udp.Clear();
         }
-
-
     }
+
+    
 
     public class ObsCollection<T> : ObservableCollection<T>
     {
