@@ -513,28 +513,36 @@ namespace onewater.flowmonitor.core
 
                 f.lastUp = 0;
                 f.lastDown = 0;
+                
+            }
 
 
+            foreach (Flow flow in ViewData){
                 // 查看进程是否运行
                 bool active = false;
-                foreach (int pid in f.pid)
+                foreach (int pid in flow.pid)
                 {
                     if (ActivePIDs.IndexOf(pid) != -1)
                     {
                         active = true;
-                        break;
+                    }else{
+                        flow.pid.Remove(pid);
                     }
                 }
                 if (!active)
                 {
                     System.Windows.Application.Current.Dispatcher.Invoke(new Action(delegate
                     {
-                        ViewData.Remove(f);
-                        Histroy.WriteDataByFlow(f);
-
+                        ViewData.Remove(flow);
+                        Histroy.WriteDataByFlow(flow);
+                        
                     }));
                 }
             }
+
+            
+
+
         }
 
         private void ClearTable()
